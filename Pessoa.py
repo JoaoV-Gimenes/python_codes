@@ -8,20 +8,19 @@ class Pessoa:
     def __str__(self):
         return f'Nome: {self._nome} , idade: {self.idade} anos, profissão: {self.profissao}'
 
-    def aniverssario(self):
+    def func_aniversario(self):
         if self.aniversario:
             self.idade += 1
-            return f"Feliz Aniversário! agora você tem {self.idade} anos"
+            print(f"Feliz Aniversário! agora você tem {self.idade} anos")
+            print(f'Nome: {self._nome} , idade: {self.idade} anos, profissão: {self.profissao}')
+            return self.idade
         else:
             return "Hoje não é seu aniversário"
 
     def saudacao(self):
         return f'Olá {self.profissao}'
 
-nome = input("nome --> ")
-idade = int(input("idade --> "))
-profissao = input("profissao --> ")
 
-resultado = Pessoa(nome, idade, profissao)
+resultado = Pessoa("João", 18, "ajsjhasjb")
 
-print(resultado.aniversario)
+print(resultado.func_aniversario())
