@@ -1,16 +1,38 @@
 import pandas as pd
 
-df = pd.DataFrame({
-    "pedido": [1001, 1002, 1003, 1004, 1005, 1006],
-    "produto": ["Notebook", "Mouse", "Monitor",
-                "Teclado", "Notebook", "Webcam"],
-    "categoria": ["Informatica", "Acessorio",
-                  "Informatica", "Acessorio",
-                  "Informatica", "Acessorio"],
-    "regiao": ["SP", "RJ", "SP", "MG", "RJ", "SP"],
-    "preco": [4200.0, 89.9, 1350.0,
-              210.0, 3990.0, 149.9],
-    "qtd": [2, 10, 3, 5, 1, 4],
-})
+dados = pd.read_csv("manutencao_preditiva.csv")
 
-print(df)
+##dadosL = dados[dados["Tipo"] == "L"]
+##dadosH = dados[dados["Tipo"] == "H"]
+##dadosM = dados[dados["Tipo"] == "M"]
+
+######################################
+
+##print(dados["Tipo"].value_counts())
+
+########################################
+
+##print(dados["Tipo da Falha"].value_counts())
+
+##############################################
+
+#df = dados[dados["Tipo da Falha"] == "Power Failure"]
+
+#########################################
+
+#print(df["Tipo"].value_counts())
+
+########################################
+
+x = dados['UDI']
+y1 = dados['Temperatura Processo [K]']
+y2 = dados['Velocidade Rotacao [rpm]']
+y3 = dados['Torque [Nm]']
+
+import matplotlib.pyplot as plt
+
+plt.plot(x, y3)
+plt.show()
+ ####################################
+
+dados1 = dados[(dados["Tipo de Falha"] == "Power Failure") & (dados["Tipo"] == "M")]
